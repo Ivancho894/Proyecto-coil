@@ -24,4 +24,10 @@ class Day:
             return 4-len(self.morning)
         return 6-self.afterNoon
 
+    def firstTimeCheck(self,act):
+        #verifico si la actividad ya esta en este dia
+        #a hacerla
+        return True
+
+
 
