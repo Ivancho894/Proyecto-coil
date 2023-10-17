@@ -1,5 +1,12 @@
 from ActivitiesOrganizer.Prototypes.prototypes import Activity
 
+
+def shiftCheck(shift):
+    if shift == 'm':
+        return 'morning'
+    else:
+        return 'afterNoon'
+
 def mainCharge():
     n = int(input('Ingrese cantidad de actividades a cargar: '))
     #Inicializo el array de actividades
@@ -9,8 +16,10 @@ def mainCharge():
         name=input('Ingrese el nombre de la actividad numero '+ str(i) +': ')
         hours=input('Ingrese la cantidad de horas: ')
         days=input('Ingrese la cantidad de dias: ')
-        shift=input('Manana(m) o tarde(t): ')
+        shift=shiftCheck(input('Manana(m) o tarde(t): '))
+        print(shift)
         actVec[i]=Activity(name,hours,days,shift)
     #devuelvo un array cargado de actividades
     return actVec
+
 

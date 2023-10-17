@@ -4,9 +4,9 @@ from ActivitiesOrganizer.PrintActivities.mainWrite import *
 
 
 def test():
-    activities = mainCharge()
+#    activities = mainCharge()
 
-    week=chargeWeek(activities)
+    week=chargeWeek([Activity('Gym',4,2,'morning')])
 
     writeWeek(week)
 

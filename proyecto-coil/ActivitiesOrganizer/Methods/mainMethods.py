@@ -8,13 +8,15 @@ def chargeDay(week,act):
     dayNum= random.randint(1,5)
 
     #Devuelve True o False si tiene tiempo para la actividad
-    hasTime = week[dayNum].hoursLeft(act.shiftCheck())>=act.hours
+    hasTime = week[dayNum].hoursLeft(act.shift)>=act.hours
     #Funcion de la clase day que chequea si fue la primera vez
     firstTime = week[dayNum].firstTimeCheck(act)
 
     if (hasTime & firstTime):
         #Agrego al dia la actividad, multiplicada por el numero de horas
-        week[dayNum][act.shiftCheck()].append(act)*act.hour
+#        week[dayNum][act.shift].append(act)*act.hour
+        for i in range(act.hours):
+            setattr(week[dayNum],act.shift[week[dayNum].dayStartsAt(act.shift)], act)
         if act.days > 1:
             act.days-=1
             chargeDay(week,act)
