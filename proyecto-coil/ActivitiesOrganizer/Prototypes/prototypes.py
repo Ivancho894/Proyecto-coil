@@ -17,13 +17,14 @@ class Day:
     def actStartsAt(self,shift):
         shiftArr = getattr(self,shift)
         if(shift == 'morning'):
-            return 4-self.nothingCount(self,shift)
-        return 6-self.nothingCount(self,shift)
+            return 4-self.nothingCount(shift)
+        return 6-self.nothingCount(shift)
 
     def nothingCount(self,shift):
         count = 0
-        for i in range(len(self[shift])):
-            if (self[shift][i] == 'Nothing'):
+        shiftArr = getattr(self,shift)
+        for i in range(len(shiftArr)):
+            if (shiftArr[i] == 'Nothing'):
                 count+=1
         return count
 
