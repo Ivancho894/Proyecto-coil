@@ -7,13 +7,13 @@ import random
 def chargeMorning(day,act):
     startsAt = day.actStartsAt(act.shift)
     for i in range(act.hours):
-        day.morning[startsAt]=act
+        day.morning[startsAt]=act.name
         startsAt+=1
     return day
 def chargeAfternoon(day,act):
     startsAt = day.actStartsAt(act.shift)
     for i in range(act.hours):
-        day.afterNoon[startsAt]=act
+        day.afterNoon[startsAt]=act.name
         startsAt+=1
     return day
 
@@ -25,7 +25,7 @@ def chargeDay(week,act):
     dayNum= random.randint(0,4)
     print(dayNum)
 
-    print(week[dayNum].morning)
+    print('morning',week[dayNum].morning)
     #Funcion que devuelve index del array que no hay actividades
     timeLeft=week[dayNum].hoursLeft(act.shift)
     print(timeLeft)
@@ -59,7 +59,10 @@ def chargeDay(week,act):
 
 def chargeWeek(actVec):
     #creo la semana
-    week=[Day()]*5
+    week=[]
+    for i in range(5):
+        week.append(Day())
+
     print(week)
     #itero en la cantida de actividaddes para cargarlas en dias
     for i in range(len(actVec)):
