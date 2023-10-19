@@ -50,7 +50,10 @@ class Day:
 
     def firstTimeCheck(self,act):
         #verifico si la actividad ya esta en este dia
-        #a hacerla
+        shiftArr = getattr(self,act.shift)
+        for i in range(len(shiftArr)):
+            if (shiftArr[i]==act.name):
+                return False
         return True
 
 
