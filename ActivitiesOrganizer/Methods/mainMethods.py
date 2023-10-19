@@ -1,4 +1,4 @@
-from ActivitiesOrganizer.Prototypes.prototypes import *
+from Prototypes.prototypes import *
 import random
 
 

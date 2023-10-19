@@ -1,6 +1,6 @@
 from ActivitiesOrganizer.ChargeActivities.mainCharge import *
-from ActivitiesOrganizer.Methods.mainMethods import *
-from ActivitiesOrganizer.PrintActivities.mainWrite import *
+from Methods.mainMethods import *
+from PrintActivities.mainWrite import *
 
 
 def test():

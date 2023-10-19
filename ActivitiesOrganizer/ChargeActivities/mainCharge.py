@@ -1,4 +1,4 @@
-from ActivitiesOrganizer.Prototypes.prototypes import Activity
+from Prototypes.prototypes import Activity
 
 
 def shiftCheck(shift):
