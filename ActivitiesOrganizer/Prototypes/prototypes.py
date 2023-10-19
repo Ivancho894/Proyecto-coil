@@ -14,11 +14,16 @@ class Day:
     def __init__(self):
         self.morning  = ['Nothing']*4
         self.afterNoon = ['Nothing']*6
-    def actStartsAt(self,shift):
-        shiftArr = getattr(self,shift)
+    def freeTime(self,shift,left):
         if(shift == 'morning'):
-            return 4-self.nothingCount(shift)
-        return 6-self.nothingCount(shift)
+            if(left):
+                return 4-self.nothingCount(shift)
+            else:
+                return self.nothingCount(shift)
+        if (left):
+            return 6 - self.nothingCount(shift)
+        else:
+            return self.nothingCount(shift)
 
     def nothingCount(self,shift):
         count = 0
@@ -27,6 +32,7 @@ class Day:
             if (shiftArr[i] == 'Nothing'):
                 count+=1
         return count
+
 
     def hoursLeft(self,shift):
         #verifico que shift la cantidad de nothings y devuelvo el numero de horas libres
@@ -40,6 +46,8 @@ class Day:
                 if (self.afterNoon[i] == 'Nothing'):
                     count += 1
         return count
+
+
     def firstTimeCheck(self,act):
         #verifico si la actividad ya esta en este dia
         #a hacerla

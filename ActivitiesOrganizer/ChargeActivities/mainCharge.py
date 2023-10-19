@@ -17,7 +17,6 @@ def mainCharge():
         hours=input('Ingrese la cantidad de horas: ')
         days=input('Ingrese la cantidad de dias: ')
         shift=shiftCheck(input('Manana(m) o tarde(t): '))
-        print(shift)
         actVec[i]=Activity(name,hours,days,shift)
     #devuelvo un array cargado de actividades
     return actVec

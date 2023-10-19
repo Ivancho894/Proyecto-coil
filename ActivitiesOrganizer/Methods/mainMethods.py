@@ -5,14 +5,19 @@ import random
 
 
 def chargeMorning(day,act):
-    startsAt = day.actStartsAt(act.shift)
+    #Hora en la que empieza la actividad
+    startsAt = day.freeTime(act.shift,True)
     for i in range(act.hours):
+        #Agrego el nombre de la actividad
         day.morning[startsAt]=act.name
         startsAt+=1
     return day
+
 def chargeAfternoon(day,act):
-    startsAt = day.actStartsAt(act.shift)
+    #Hora en la que empieza la actividad
+    startsAt = day.freeTime(act.shift,True)
     for i in range(act.hours):
+        #Agrego el nombre de la actividad
         day.afterNoon[startsAt]=act.name
         startsAt+=1
     return day
@@ -23,20 +28,15 @@ def chargeDay(week,act):
 
     #Elijo un dia random de la semana
     dayNum= random.randint(0,4)
-    print(dayNum)
 
-    print('morning',week[dayNum].morning)
-    #Funcion que devuelve index del array que no hay actividades
-    timeLeft=week[dayNum].hoursLeft(act.shift)
-    print(timeLeft)
+    #Funcion que devuelve cantidad de horas que no hay actividades
+    timeLeft=week[dayNum].freeTime(act.shift,False)
 
     #Devuelve True o False si tiene tiempo para la actividad
     hasTime = timeLeft>=act.hours
-    print(hasTime)
 
     #Funcion de la clase day que chequea si fue la primera vez
     firstTime = week[dayNum].firstTimeCheck(act)
-    print(firstTime)
 
     if (hasTime & firstTime):
 
@@ -51,9 +51,7 @@ def chargeDay(week,act):
             act.days-=1
             chargeDay(week,act)
     else:
-        print('')
-#        chargeDay(week,act)
-
+       chargeDay(week,act)
     return week,act
 
 
@@ -63,7 +61,6 @@ def chargeWeek(actVec):
     for i in range(5):
         week.append(Day())
 
-    print(week)
     #itero en la cantida de actividaddes para cargarlas en dias
     for i in range(len(actVec)):
         week,actVec[i]=chargeDay(week,actVec[i])
