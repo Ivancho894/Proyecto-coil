@@ -14,8 +14,8 @@ def mainCharge():
     #Itero n veces cargando el array con actividades(clase)
     for i in range(n):
         name=input('Ingrese el nombre de la actividad numero '+ str(i) +': ')
-        hours=input('Ingrese la cantidad de horas: ')
-        days=input('Ingrese la cantidad de dias: ')
+        hours=int(input('Ingrese la cantidad de horas: '))
+        days=int(input('Ingrese la cantidad de dias: '))
         shift=shiftCheck(input('Manana(m) o tarde(t): '))
         actVec[i]=Activity(name,hours,days,shift)
     #devuelvo un array cargado de actividades
