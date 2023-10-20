@@ -1,4 +1,4 @@
-from ActivitiesOrganizer.ChargeActivities.mainCharge import *
+#from ActivitiesOrganizer.ChargeActivities.mainCharge import *
 from Prototypes.prototypes import Activity
 from Methods.mainMethods import *
 from PrintActivities.mainWrite import *
