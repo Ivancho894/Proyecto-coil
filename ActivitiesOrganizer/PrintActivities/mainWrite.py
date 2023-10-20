@@ -11,8 +11,8 @@ def printAfternoon(day,i):
     return ''
 
 def printHours(hour):
-    if (hour<=1800):
-        return "{:<11}".format(str(hour)) +' ' + printHours(hour+100)
+    if (hour<=17):
+        return "{:<11}".format(str(hour)) +' ' + printHours(hour+1)
     return ''
 
 #Aca hay que hacer una funcion que muestre un dia
@@ -20,13 +20,13 @@ def writeDay(day):
     #hacer iteracion de todas las horas del dia y mostrar que hay
     for i in range(4):
         print(800+i*100,day.morning[i])
-    for i in range(6):
+    for i in range(5):
         print(1200+i*100,day.afterNoon[i])
     print('\n')
 
 
 def writeWeek(week):
-    print(printHours(800))
+    print("{:<11}".format('Hours: ')+printHours(8))
     #iterar en la semana y mostrar dias
     for i in range(5):
         print('Day ',i+1,' ',printMorning(week[i],0)+printAfternoon(week[i],0))
