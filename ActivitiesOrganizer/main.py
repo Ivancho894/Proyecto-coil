@@ -1,6 +1,9 @@
 from Prototypes.prototypes import Activity
 from PrintActivities.mainWrite import *
 from ChargeActivities.chargeByHour import *
+from ChargeActivities.chargeByCharge import *
+from Methods.mainMeth import *
+
 
 
 def createWeek():
@@ -12,16 +15,22 @@ def createWeek():
 def test():
     op=-1
     week=createWeek()
+    week,error=chargeActByHour(week,Activity('Gym',3,1,1))
     while(op!=0):
         print('Este es su calendario hasta ahora: ')
         writeWeek(week)
         print('Menu Principal')
         print('1. Desea cargar actividad')
         print('2. Desea modificar actividad')
+        print('3. Desea eliminar actividad')
         print('0. Salir')
         op=int(input())
         if(op==1):
             week = activityCharge(week)
+        if(op==2):
+            week = changeAct(week)
+        if(op==3):
+            week,act = removeAct(week)
         
         
 

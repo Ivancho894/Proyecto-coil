@@ -2,7 +2,7 @@ from Prototypes.prototypes import *
 from Methods.mainMeth import *
 from PrintActivities.mainWrite import *
 
-def day():
+def dayInput():
     dayCheck=True
     while(dayCheck):
         day=int(input('Que dia va ser la actividad: '))
@@ -10,19 +10,19 @@ def day():
             print('Los dias son entre 1 y 5')
         else:
             dayCheck=False
-    return day
+    return day-1
 
-def hour():
+def hourInput():
     hourCheck=True
     while(hourCheck):
-        hour=int(input('A que hora desea que comience la actividad: '))
+        hour=int(input('A que hora comienza su actividad: '))
         if(hour<8 or hour>17):
             print('Los horas son entre 8 y 17')
         else:
             hourCheck=False
-    return hour
+    return hour-8
 
-def hours():
+def hoursInput():
     hoursCheck= True
     while(hoursCheck):
         hours=int(input('Cuantas horas va a durar: '))
@@ -32,22 +32,8 @@ def hours():
             hoursCheck=False
     return hours
 
-def changeAct(what,week,act):
-    if(what==1):
-        day = day()
-        act.day = day
-        afterCharge(week,act)
-    if(what==2):
-        hours = hours()
-        act.hours = hours
-        afterCharge(week,act)
-    if(what==3):
-        hour = hour()
-        act.hour = hour
-        afterCharge(week,act)
-    return week
 
-def changeSothing(week,act):
+def changeSomething(week,act):
     
     print('1. Cambiar dia')
     print('2. Cambiar duracion')
@@ -55,9 +41,10 @@ def changeSothing(week,act):
     
     op=int(input('Ingrese una opcion: '))
 
-    changeAct(op,week,act)
+    week=changeAct(op,week,act)
 
-#FALTA VER LOS RETURN 
+    return week
+
 
 
 def afterCharge(week,act):
@@ -65,25 +52,40 @@ def afterCharge(week,act):
     if(error!='none'):
         #No se cargo correctamente
         print(error)
-        week=changeSothing(week,act)
+        week=changeSomething(week,act)
 
     print('Se cargo de forma correcta su actividad')
     return week
 
+def changeAct(what,week,act):
+    if(what==1):
+        day = dayInput()
+        act.day = day
+        week=afterCharge(week,act)
+    if(what==2):
+        hours = hoursInput()
+        act.hours = hours
+        week=afterCharge(week,act)
+    if(what==3):
+        hour = hourInput()
+        act.hour = hour
+        week=afterCharge(week,act)
+    return week
     
+
 def activityCharge(week):
 
-    day=day()
+    day=dayInput()
 
     print('Estas son las actividades de ese dia: ')
     print("{:<8}".format('Hours: ')+printHours(8))
-    print('Day ',day,' ',writeDay(week[day-1],0))
+    print('Day ',day+1,' ',writeDay(week[day],0))
 
     name=input('Como se va a llamar la actividad: ')
 
-    hour=hour()
+    hour=hourInput()
 
-    hours=hours()
+    hours=hoursInput()
 
-    act=Activity(name,hours,hour,day-1)
+    act=Activity(name,hours,hour,day)
     return afterCharge(week,act)

@@ -12,3 +12,4 @@ class Day:
         self.activities = ['nothing']*10
 
 
+
