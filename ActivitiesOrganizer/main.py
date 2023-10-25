@@ -1,16 +1,27 @@
-from ChargeActivities.mainCharge import *
 from Prototypes.prototypes import Activity
-from Methods.mainMethods import *
 from PrintActivities.mainWrite import *
+from ChargeActivities.chargeByHour import *
 
 
+def createWeek():
+    week=[]
+    for i in range(5):
+        week.append(Day())
+    return week
 
 def test():
-    exampleAct = [Activity('Gym',2,3,'morning'),Activity('University',2,3,'morning'),Activity('Football',2,3,'afterNoon'),Activity('Exam',1,2,'morning'),Activity('Meet',1,4,'afterNoon')]
-    activities = mainCharge()
-
-    week=chargeWeek(activities)
-
-    writeWeek(week)
+    op=-1
+    week=createWeek()
+    while(op!=0):
+        print('Este es su calendario hasta ahora: ')
+        writeWeek(week)
+        print('Menu Principal')
+        print('1. Desea cargar actividad')
+        print('2. Desea modificar actividad')
+        print('0. Salir')
+        op=int(input())
+        if(op==1):
+            week = activityCharge(week)
+        
 
 test()

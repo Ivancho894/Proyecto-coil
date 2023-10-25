@@ -5,3 +5,10 @@
 #como: ir a la facultad, ir al gimnasio, estudiar, tener reuniones, comer y dormir. Es por esto que
 #desarrollaremos una app que nos organice los tiempos a dedicarle a cada actividad, con un
 #objetivo de horas semanal.
+
+
+
+#mejorar interfase
+#agregar por hora
+#mejorar preguntas
+
