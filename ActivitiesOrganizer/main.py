@@ -23,5 +23,6 @@ def test():
         if(op==1):
             week = activityCharge(week)
         
+        
 
 test()
