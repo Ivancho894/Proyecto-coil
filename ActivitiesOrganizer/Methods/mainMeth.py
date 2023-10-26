@@ -20,7 +20,7 @@ def checkHability(week,act):
     day=week[act.day]
     for i in range(act.hours):
         if(day.activities[act.hour+i]!='nothing'):
-            return 'A las '+str(act.hour+i+8)+' tenes '+str(day.activities[act.hour+i])+'. Podes cambiar lo siguiente de '+act.name+':'
+            return 'A las '+str(act.hour+i+8)+' tenes '+str(day.activities[act.hour+i])
     return 'none'
 
 def chargeActByHour(week,act):

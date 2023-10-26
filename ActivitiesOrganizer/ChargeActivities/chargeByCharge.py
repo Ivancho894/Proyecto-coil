@@ -1,14 +1,18 @@
 from PrintActivities.mainWrite import *
 from ChargeActivities.chargeByHour import *
 from Methods.mainMeth import *
-
+import os
 def actChoose(week):
     choosed = False
-    print('Modificacion de actividad')
+
 
     while(not choosed):
-
+        os.system('clear')
+        print('MODIFICACION DE ACTIVIDAD')
+        print('Este es su calendario hasta ahora: ')
+        writeWeek(week)
         day=dayInput()
+        os.system('clear')
         print('Estas son las actividades de ese dia: ')
         printAllHours()
         writeDay(week[day],day)

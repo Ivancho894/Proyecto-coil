@@ -40,7 +40,7 @@ def hoursInput():
 
 
 def changeSomething(week,act):
-    
+    print('Podes cambiar lo siguiente de '+act.name+':')
     print('1. Cambiar dia')
     print('2. Cambiar duracion')
     print('3. Cambiar hora')  
