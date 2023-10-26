@@ -26,7 +26,7 @@ def hourInput():
             print('Los horas son entre 8 y 17')
         else:
             hourCheck=False
-    return hour-9
+    return hour-8
 
 def hoursInput():
     hoursCheck= True
@@ -57,6 +57,8 @@ def afterCharge(week,act):
     week,error = chargeActByHour(week,act)
     if(error!='none'):
         #No se cargo correctamente
+        os.system('clear')
+        
         print(error)
         week=changeSomething(week,act)
 
@@ -85,7 +87,7 @@ def activityCharge(week):
     os.system('clear')
     print('AGREGANDO NUEVA ACTIVIDAD')
     print('Estas son las actividades de ese dia: ')
-    print("{:<8}".format('Hours: ')+printHours(8))
+    printAllHours()
     writeDay(week[day],day)
 
     name=input('Como se va a llamar la actividad: ')

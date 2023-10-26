@@ -10,9 +10,8 @@ def actChoose(week):
 
         day=dayInput()
         print('Estas son las actividades de ese dia: ')
-        print("{:<8}".format('Hours: ')+printHours(8))
-        print('Day ',day,' ',writeDay(week[day],0))
-
+        printAllHours()
+        writeDay(week[day],day)
         startHour = hourInput()
         if(week[day].activities[startHour]!='nothing'):
             choosed=True
