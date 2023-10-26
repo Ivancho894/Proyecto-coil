@@ -12,8 +12,9 @@ def removeActByHour(day,hour,dayNum):
 
 def checkHability(week,act):
     day=week[act.day]
+    print(act.hour)
     for i in range(act.hours):
-        if(day.activities[act.hour+i-8]!='nothing'):
+        if(day.activities[act.hour+i]!='nothing'):
             return False
     return True
 

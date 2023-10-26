@@ -18,7 +18,7 @@ def test():
     week=createWeek()
     week,error=chargeActByHour(week,Activity('Gym',3,1,1))
     while(op!=0):
-        os.system('clear')
+        # os.system('clear')
         print("BIENVENIDO A SU CALENDARIO \n")
         print('Este es su calendario hasta ahora: ')
         writeWeek(week)
