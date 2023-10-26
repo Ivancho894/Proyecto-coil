@@ -1,11 +1,17 @@
 from Prototypes.prototypes import *
 from Methods.mainMeth import *
 from PrintActivities.mainWrite import *
+import os
 
 def dayInput():
     dayCheck=True
     while(dayCheck):
-        day=int(input('Que dia va ser la actividad: '))
+        day=input('Que dia va ser la actividad: ')
+        try:
+            day=int(day)
+        except ValueError:
+            print('Solo numeros permitidos')
+            continue
         if(day<1 or day>5):
             print('Los dias son entre 1 y 5')
         else:
@@ -54,7 +60,6 @@ def afterCharge(week,act):
         print(error)
         week=changeSomething(week,act)
 
-    print('Se cargo de forma correcta su actividad')
     return week
 
 def changeAct(what,week,act):
@@ -74,17 +79,23 @@ def changeAct(what,week,act):
     
 
 def activityCharge(week):
-
+    os.system('clear')
+    print('AGREGANDO NUEVA ACTIVIDAD')
     day=dayInput()
-
+    os.system('clear')
+    print('AGREGANDO NUEVA ACTIVIDAD')
     print('Estas son las actividades de ese dia: ')
     print("{:<8}".format('Hours: ')+printHours(8))
-    print('Day ',day+1,' ',writeDay(week[day],0))
+    writeDay(week[day],day)
 
     name=input('Como se va a llamar la actividad: ')
-
+    os.system('clear')
+    print('AGREGANDO ',name,' A TU CALENDARIO')
+    print('Estas son las actividades de ese dia: ')
+    print("{:<8}".format('Hours: ')+printHours(8))
+    writeDay(week[day],day)
     hour=hourInput()
-
+    
     hours=hoursInput()
 
     act=Activity(name,hours,hour,day)

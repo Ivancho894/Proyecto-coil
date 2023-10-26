@@ -1,5 +1,4 @@
 from Prototypes.prototypes import *
-from ChargeActivities.chargeByHour import *
 
 
 def removeActByHour(day,hour,dayNum):
@@ -15,7 +14,9 @@ def removeActByHour(day,hour,dayNum):
 def checkHability(week,act):
     day=week[act.day]
     for i in range(act.hours):
+        print(day.activities[act.hour+i-8],act.hour,i)
         if(day.activities[act.hour+i-8]!='nothing'):
+
             return False
     return True
 

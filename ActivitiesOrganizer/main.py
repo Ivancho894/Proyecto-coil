@@ -3,6 +3,7 @@ from PrintActivities.mainWrite import *
 from ChargeActivities.chargeByHour import *
 from ChargeActivities.chargeByCharge import *
 from Methods.mainMeth import *
+import os
 
 
 
@@ -17,6 +18,8 @@ def test():
     week=createWeek()
     week,error=chargeActByHour(week,Activity('Gym',3,1,1))
     while(op!=0):
+        # os.system('clear')
+        print("BIENVENIDO A SU CALENDARIO \n")
         print('Este es su calendario hasta ahora: ')
         writeWeek(week)
         print('Menu Principal')
@@ -24,12 +27,12 @@ def test():
         print('2. Desea modificar actividad')
         print('3. Desea eliminar actividad')
         print('0. Salir')
-        op=int(input())
-        if(op==1):
+        op=(input())
+        if(op=='1'):
             week = activityCharge(week)
-        if(op==2):
+        if(op=='2'):
             week = changeAct(week)
-        if(op==3):
+        if(op=='3'):
             week,act = removeAct(week)
         
         

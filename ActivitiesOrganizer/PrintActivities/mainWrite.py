@@ -6,12 +6,17 @@ def printHours(hour):
 
 
 
-def writeDay(day,i):
+def writeDayActivities(day,i):
     if(i<10):
-        return "{:<8}".format(str(day.activities[i]))+' '+str(writeDay(day,i+1))
+        return "{:<8}".format(str(day.activities[i]))+' '+str(writeDayActivities(day,i+1))
     return ''
+def writeDay(day,num):
+    days=['Monday','Tuesday','Wensday','Thursday','Friday']
+    print("{:<13}".format(days[num]),' ',writeDayActivities(day,0))
+
+
 def writeWeek(week):
     print("{:<8}".format('Hours: ')+printHours(8))
     #iterar en la semana y mostrar dias
     for i in range(5):
-        print('Day ',i+1,' ',writeDay(week[i],0))
+        writeDay(week[i],i)
