@@ -7,18 +7,14 @@ import os
 import time
 
 
-def createWeek():
-    week=[]
-    for i in range(5):
-        week.append(Day())
-    return week
+
 
 def test():
     op=-1
     week=createWeek()
     week,error=chargeActByHour(week,Activity('Gym',3,1,1))
     while(op!=0):
-        # os.system('clear')
+        os.system('clear')
         print("BIENVENIDO A SU CALENDARIO \n")
         print('Este es su calendario hasta ahora: ')
         writeWeek(week)

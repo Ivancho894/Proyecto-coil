@@ -58,7 +58,12 @@ def afterCharge(week,act):
     if(error!='none'):
         #No se cargo correctamente
         os.system('clear')
-        
+        print('AGREGANDO ',act.name,' A TU CALENDARIO')
+        print('Estas son las actividades de ese dia: ')
+        printAllHours()
+        writeDay(week[act.day],act.day)
+        fakeWeek,er=chargeActByHour(createWeek(),act)
+        writeDay(fakeWeek[act.day],act.day)
         print(error)
         week=changeSomething(week,act)
 
@@ -94,7 +99,7 @@ def activityCharge(week):
     os.system('clear')
     print('AGREGANDO ',name,' A TU CALENDARIO')
     print('Estas son las actividades de ese dia: ')
-    print("{:<8}".format('Hours: ')+printHours(8))
+    printAllHours()
     writeDay(week[day],day)
     hour=hourInput()
     

@@ -16,6 +16,7 @@ def writeDay(day,num):
 
 def printAllHours():
     print("{:<14}".format('Hours: ')+printHours(8))
+    
 def writeWeek(week):
     printAllHours()
     #iterar en la semana y mostrar dias
