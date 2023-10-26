@@ -26,7 +26,7 @@ def hourInput():
             print('Los horas son entre 8 y 17')
         else:
             hourCheck=False
-    return hour-8
+    return hour-9
 
 def hoursInput():
     hoursCheck= True

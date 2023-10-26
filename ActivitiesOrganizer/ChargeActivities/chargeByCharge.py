@@ -29,6 +29,5 @@ def removeAct(week):
 
 def changeAct(week):
     week,act=removeAct(week)
-    print(act.hour)
     return changeSomething(week,act)
     
