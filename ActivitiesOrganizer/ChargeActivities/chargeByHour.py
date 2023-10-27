@@ -21,7 +21,11 @@ def dayInput():
 def hourInput():
     hourCheck=True
     while(hourCheck):
-        hour=int(input('A que hora es su actividad: '))
+        try:
+            hour=int(input('A que hora es su actividad: '))
+        except ValueError:
+            print('Solo numeros permitidos')
+            continue
         if(hour<8 or hour>17):
             print('Los horas son entre 8 y 17')
         else:
@@ -31,7 +35,11 @@ def hourInput():
 def hoursInput():
     hoursCheck= True
     while(hoursCheck):
-        hours=int(input('Cuantas horas va a durar: '))
+        try:
+            hours=int(input('Cuantas horas va a durar: '))
+        except ValueError:
+            print('Solo numeros permitidos')
+            continue
         if(hours<0 or hours>10):
             print('Las horas tienen que ser mayor a 0 y menor a 10')
         else:
