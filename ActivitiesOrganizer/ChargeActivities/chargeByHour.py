@@ -6,7 +6,8 @@ import os
 def dayInput():
     dayCheck=True
     while(dayCheck):
-        day=input('Que dia va ser la actividad: ')
+        print(printDays(0))
+        day=input('Ingrese el numero de dia que va a ser la actividad: ')
         try:
             day=int(day)
         except ValueError:
@@ -70,8 +71,7 @@ def afterCharge(week,act):
         print('Estas son las actividades de ese dia: ')
         printAllHours()
         writeDay(week[act.day],act.day)
-        fakeWeek,er=chargeActByHour(createWeek(),act)
-        writeDay(fakeWeek[act.day],act.day)
+
         print(error)
         week=changeSomething(week,act)
 
@@ -110,7 +110,7 @@ def activityCharge(week):
     printAllHours()
     writeDay(week[day],day)
     hour=hourInput()
-    
+
     hours=hoursInput()
 
     act=Activity(name,hours,hour,day)

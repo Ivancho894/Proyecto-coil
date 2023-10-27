@@ -2,6 +2,9 @@ from PrintActivities.mainWrite import *
 from ChargeActivities.chargeByHour import *
 from Methods.mainMeth import *
 import os
+import time
+
+
 def actChoose(week):
     choosed = False
 
@@ -21,6 +24,7 @@ def actChoose(week):
             choosed=True
         else:
             print('No hay actividades a esa hora')
+            time.sleep(2)
 
     
     return day,startHour

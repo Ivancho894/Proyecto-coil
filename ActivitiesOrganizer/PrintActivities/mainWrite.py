@@ -4,6 +4,13 @@ def printHours(hour):
         return "{:<8}".format(str(hour)) +' ' + printHours(hour+1)
     return ''
 
+def printDays(i):
+    days=['Monday, ','Tuesday, ','Wensday, ','Thursday, ','Friday',' ']
+    if(i<5):
+        return "{:<9}".format(str(i+1)+'='+days[i])+printDays(i+1)
+    return ''
+    
+
 
 
 def writeDayActivities(day,i):
