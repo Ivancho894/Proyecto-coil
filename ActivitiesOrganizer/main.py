@@ -12,7 +12,8 @@ import time
 def test():
     op=-1
     week=createWeek()
-    week,error=chargeActByHour(week,Activity('Gym',3,1,1))
+    #Actividad de ejemplo
+    #week,error=chargeActByHour(week,Activity('Gym',3,1,1))
     while(op!=0):
         os.system('clear')
         print("BIENVENIDO A SU CALENDARIO \n")
